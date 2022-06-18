@@ -15,7 +15,7 @@ const navigate = useNavigate();
       password
     }
     console.log(data)
-axios.post("https://crimecheckapp.herokuapp.com/login",data).then((res)=> {dispatch(loginSuccess(res.data));navigate("/")}).catch((err)=> console.log(err))
+axios.post("http://localhost:5100/login",data).then((res)=> {dispatch(loginSuccess(res.data));navigate("/")}).catch((err)=> console.log(err))
   }
   return (
     <div>

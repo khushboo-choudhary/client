@@ -28,7 +28,7 @@ export default function Signup() {
     }
     console.log("dataaa", data);
 
-    axios.post("https://crimecheckapp.herokuapp.com/signup",data).then((res)=> {dispatch(loginSuccess(res.data));navigate("/login")}).catch((err)=> console.log(err))
+    axios.post("http://localhost:5100/signup",data).then((res)=> {dispatch(loginSuccess(res.data));navigate("/login")}).catch((err)=> console.log(err))
  
     dispatch(Signup(data))
   }
@@ -40,7 +40,7 @@ export default function Signup() {
      <div>
         <input type="text" placeholder='firstName' onChange={(e)=> setFirstName(e.target.value)}/>
         <input type="text" placeholder='lastName' onChange={(e)=> setLastName(e.target.value)}/>
-        <input type="text" placeholder='lastName' onChange={(e)=> setEmail(e.target.value)}/>
+        <input type="text" placeholder='email' onChange={(e)=> setEmail(e.target.value)}/>
         <input type="text" placeholder='phone number' onChange={(e)=> setphone(e.target.value)}/>
         <input type="text" placeholder='password' onChange={(e)=> setPassword(e.target.value)}/>
         <input type="text" placeholder='confirm password' onChange={(e)=> setConfirmPassword(e.target.value)}/>
