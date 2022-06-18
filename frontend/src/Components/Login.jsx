@@ -24,7 +24,7 @@ axios.post("https://crimecheckapp.herokuapp.com/login",data).then((res)=> {dispa
       <div>
         <input type="text" placeholder='email' onChange={(e)=> setEmail(e.target.value)}/>
         <input type="text" placeholder='password' onChange={(e)=> setPassword(e.target.value)}/>
-        <button onClick={() => handleAdd()}>Add</button>
+        <button onClick={() => handleAdd()}>Login</button>
       </div>
     </div>
   )

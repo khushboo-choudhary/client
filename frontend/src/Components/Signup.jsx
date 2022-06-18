@@ -1,11 +1,13 @@
 
 import React, { useState } from 'react'
-
+import axios from "axios";
 import { useDispatch } from 'react-redux'
-
+import { loginSuccess } from '../Redux/Action'
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
-
+  
+  const navigate = useNavigate();
   const dispatch = useDispatch()
   const [first_name, setFirstName] = useState("")
   const [last_name, setLastName] = useState("")
@@ -25,6 +27,9 @@ export default function Signup() {
       confirm_password: confirm_password
     }
     console.log("dataaa", data);
+
+    axios.post("https://crimecheckapp.herokuapp.com/signup",data).then((res)=> {dispatch(loginSuccess(res.data));navigate("/login")}).catch((err)=> console.log(err))
+ 
     dispatch(Signup(data))
   }
 
