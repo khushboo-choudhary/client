@@ -15,15 +15,17 @@ const navigate = useNavigate();
       password
     }
     console.log(data)
-axios.post("http://localhost:5100/login",data).then((res)=> {dispatch(loginSuccess(res.data));navigate("/")}).catch((err)=> console.log(err))
+       axios.post("http://localhost:5100/login",data).then((res)=> {dispatch(loginSuccess(res.data));alert("login Successfully"); navigate("/")}).catch((error) => {alert(error.response.data.message)})
   }
   return (
     <div>
-      <div>Login</div>
+      <h1>Login</h1>
 
       <div>
-        <input type="text" placeholder='email' onChange={(e)=> setEmail(e.target.value)}/>
-        <input type="text" placeholder='password' onChange={(e)=> setPassword(e.target.value)}/>
+      <label>Email:</label>&nbsp;
+        <input type="text" placeholder='email' onChange={(e)=> setEmail(e.target.value)}/><br/><br/>
+        <label>Password:</label>&nbsp;
+        <input type="text" placeholder='password' onChange={(e)=> setPassword(e.target.value)}/><br/><br/>
         <button onClick={() => handleAdd()}>Login</button>
       </div>
     </div>
